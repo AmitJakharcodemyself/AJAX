@@ -1,6 +1,8 @@
 const express=require('express')
 const app=express()
 const TodoRoute=require('./route/todo')
+const port =process.env.PORT || 4444
+
 
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
@@ -13,6 +15,6 @@ app.use('/public',express.static(__dirname+'/public'))
 
 app.use('/todo',TodoRoute)
 
-app.listen(4999,function(){
+app.listen(port,function(){
     console.log("Server is started")
 })
